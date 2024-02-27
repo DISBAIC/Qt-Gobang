@@ -23,4 +23,5 @@ int main(int argc, char *argv[])
     w.setFixedSize(950, 950);
     w.show();
     return a.exec();
+
 }

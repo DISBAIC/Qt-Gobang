@@ -1,12 +1,6 @@
 #pragma once
 
-enum state {
-    black,
-    white,
-    none
-};
+//black 0;
+//white 1;
+//none 2
 
-class piece {
-public:
-    state state;
-};
