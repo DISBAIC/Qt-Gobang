@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GOBANG", "GOBANG.vcxproj", "{B62261FF-F274-417F-A46B-C62F1AA9725D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B62261FF-F274-417F-A46B-C62F1AA9725D}.Debug|x64.ActiveCfg = Debug|x64
+		{B62261FF-F274-417F-A46B-C62F1AA9725D}.Debug|x64.Build.0 = Debug|x64
+		{B62261FF-F274-417F-A46B-C62F1AA9725D}.Release|x64.ActiveCfg = Release|x64
+		{B62261FF-F274-417F-A46B-C62F1AA9725D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6372FE49-BA40-423C-A886-526EB7F21A31}
+	EndGlobalSection
+EndGlobal
