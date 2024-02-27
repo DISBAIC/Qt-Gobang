@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="base.h" />
     <ClInclude Include="piece.h" />
+    <ClInclude Include="function.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="GOBANG.h" />

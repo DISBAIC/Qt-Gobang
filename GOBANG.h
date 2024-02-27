@@ -8,19 +8,11 @@
 #include <math.h>
 #include <windows.h>
 #include <QMessageBox>
-
-void showMessageBox(const char * output);
-int victory_check(int x, int y, int state);
-void Gobang(int x, int y);
-
+#include "function.h"
+extern struct piece pieces[19][19];
 #define loops(x ,i) for(int i = 0;i<x;i++)
-extern int operatering;
-extern bool end;
-extern bool camp;
-struct piece;
-
 QBrush Color_spwan(int state);
-extern piece pieces[19][19];
+
 
 class GOBANG : public QMainWindow
 {
@@ -72,13 +64,15 @@ public:
         float x = event->pos().x();
         float y = event->pos().y();
 
-        // 将像素坐标转换为浮点的棋盘坐标
+        
+
+
         float colF = x / cellSize;
         float rowF = y / cellSize;
 
-        // 使用四舍五入确定最终的行列
-        int col = round(colF);
-        int row = round(rowF);
+        
+        int col = postion(x);
+        int row = postion(y);
 
 
 
@@ -89,7 +83,7 @@ public:
             Gobang(col, row);
             
             if (victory_check(col - 1, row - 1, pieces[col - 1][row - 1].state)) {
-                end = true;
+               end = true;
             };
 
             update(); // 请求重绘

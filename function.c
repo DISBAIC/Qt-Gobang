@@ -1,8 +1,5 @@
 
 #include "piece.h"
-extern struct piece pieces[19][19];
-extern int operatering;
-
 
 int victory_check(int x, int y, int state) {
     
@@ -77,4 +74,9 @@ void Gobang(int x, int y) {
             pieces[col - 1][row - 1].state = 0;
         }
     }
+}
+
+int postion(float p) {
+    float pt = p / 50.0;
+    return round(pt);
 }

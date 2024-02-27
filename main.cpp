@@ -1,10 +1,10 @@
 #include "GOBANG.h"
 #include <QtWidgets/QApplication>
-#include "base.h"
+#include "function.h"
 #define loops(x,i) for(int i = 0;i<x;i++)
 #include "piece.h"
 int operatering;
-bool end;
+int end;
 
 piece pieces[19][19];
 

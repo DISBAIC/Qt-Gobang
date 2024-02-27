@@ -11,7 +11,6 @@ GOBANG::~GOBANG()
 {}
 
 
-
 void showMessageBox(const char * output) {
     QMessageBox::information(nullptr, "Game Over", output);
 }
