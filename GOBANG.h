@@ -3,22 +3,23 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_GOBANG.h"
 #include <qpainter.h>
-#include "base.h"
+#include "piece.h"
 #include <QMouseEvent>
 #include <math.h>
 #include <windows.h>
 #include <QMessageBox>
 
 void showMessageBox(const char * output);
-bool victory_check(int x, int y, state state);
+int victory_check(int x, int y, int state);
+void Gobang(int x, int y);
 
 #define loops(x ,i) for(int i = 0;i<x;i++)
-extern bool operatering;
+extern int operatering;
 extern bool end;
 extern bool camp;
+struct piece;
 
-
-QBrush Color_spwan(state state);
+QBrush Color_spwan(int state);
 extern piece pieces[19][19];
 
 class GOBANG : public QMainWindow
@@ -52,12 +53,12 @@ public:
             for (int j = 0; j < 19; ++j) {
                 QPoint center((i + 1) * cellSize, (j + 1) * cellSize); // 计算棋子中心位置
 
-                if (pieces[i][j].state != none) {
+                if (pieces[i][j].state != 2) {
                     painter.setPen(Qt::NoPen); // 不绘制边框
-                    if (pieces[i][j].state == black) {
+                    if (pieces[i][j].state == 0) {
                         painter.setBrush(Qt::black);
                     }
-                    else if (pieces[i][j].state == white) {
+                    else if (pieces[i][j].state == 1) {
                         painter.setBrush(Qt::white);
                     }
                     painter.drawEllipse(center, radius, radius);
@@ -79,20 +80,13 @@ public:
         int col = round(colF);
         int row = round(rowF);
 
+
+
         // 检查行列是否在棋盘范围内
         if (row >= 0 && row < 19 && col >= 0 && col < 19) {
             // 根据你的逻辑处理点击事件
 
-            if (pieces[col - 1][row-1].state == none) {
-                if (operatering == false) {
-                    operatering = true;
-                    pieces[col - 1][row - 1].state = white;
-                }
-                else {
-                    operatering = false;
-                    pieces[col - 1][row - 1].state = black;
-                }
-            }
+            Gobang(col, row);
             
             if (victory_check(col - 1, row - 1, pieces[col - 1][row - 1].state)) {
                 end = true;
@@ -102,7 +96,7 @@ public:
 
             if (end) {
                 setEnabled(false);
-                if (pieces[col - 1][row - 1].state == black) {
+                if (pieces[col - 1][row - 1].state == 0) {
                     showMessageBox("Black Win");
                 }
                 else {

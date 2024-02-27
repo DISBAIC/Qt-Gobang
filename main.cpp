@@ -2,14 +2,14 @@
 #include <QtWidgets/QApplication>
 #include "base.h"
 #define loops(x,i) for(int i = 0;i<x;i++)
-
-bool operatering;
+#include "piece.h"
+int operatering;
 bool end;
 
 piece pieces[19][19];
 
 void init() {
-    loops(19, i) loops(19, j) pieces[i][j].state = none;
+    loops(19, i) loops(19, j) pieces[i][j].state = 2;
 }
 
 

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h" />
+    <ClInclude Include="piece.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="GOBANG.h" />
@@ -27,5 +28,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GOBANG.cpp" />
+    <ClCompile Include="function.c" />
   </ItemGroup>
 </Project>
