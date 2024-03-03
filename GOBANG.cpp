@@ -1,6 +1,7 @@
 #include "GOBANG.h"
 #include <QMessageBox>
 
+//窗口类
 GOBANG::GOBANG(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -10,20 +11,9 @@ GOBANG::GOBANG(QWidget *parent)
 GOBANG::~GOBANG()
 {}
 
-
+//展示弹窗
 void showMessageBox(const char * output) {
     QMessageBox::information(nullptr, "Game Over", output);
-}
-
-QBrush Color_spwan(int state) {
-    switch (state) {
-    case 2:
-        return QColor(0, 0, 0, 0); break;
-    case 1:
-        return  Qt::white; break;
-    case 0:
-        return Qt::black; break;
-    }
 }
 
 
