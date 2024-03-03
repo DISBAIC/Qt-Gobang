@@ -22,49 +22,8 @@ public:
     GOBANG(QWidget* parent = nullptr);
     ~GOBANG();
     void GOBANG::paintEvent(QPaintEvent*) {
-
-        QPainter painter(this);
-        painter.setRenderHint(QPainter::Antialiasing, true);
-
-        //设置管线
-        painter.setPen(Qt::black);
-
-        //计算每个格的大小
-        int cellSize = width() / 19;
-
-        //渲染棋盘网格线
-        for (int i = 0; i <= 19; ++i) {
-
-            painter.drawLine(cellSize, i * cellSize, 18 * cellSize, i * cellSize);
-
-            painter.drawLine(i * cellSize, cellSize, i * cellSize, 18 * cellSize);
-        }
-
-        //设置背景
-        QPalette palette = this->palette();
-        palette.setColor(QPalette::Window, Qt::darkYellow);
-        this->setPalette(palette);
-
-        //绘制棋子
-        int radius = cellSize / 4;
-        for (int i = 0; i < 19; ++i) {
-            for (int j = 0; j < 19; ++j) {
-                QPoint center((i + 1) * cellSize, (j + 1) * cellSize); // 计算棋子中心位置
-
-                if (pieces[i][j].state != 2) {
-                    painter.setPen(Qt::NoPen); // 不绘制边框
-
-                    //根据Pieces数据以绘制棋子
-                    if (pieces[i][j].state == 0) {
-                        painter.setBrush(Qt::black);
-                    }
-                    else if (pieces[i][j].state == 1) {
-                        painter.setBrush(Qt::white);
-                    }
-                    painter.drawEllipse(center, radius, radius);
-                }
-            }
-        }
+        void CreateBoarder(GOBANG * Gobang);
+        CreateBoarder(this);
     }
 
     void GOBANG::mousePressEvent(QMouseEvent* event) {

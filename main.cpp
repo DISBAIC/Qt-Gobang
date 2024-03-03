@@ -28,5 +28,4 @@ int main(int argc, char *argv[])
     void QTShow(GOBANG * Gobang);
     QTShow(&w);
     return complete();
-
 }
